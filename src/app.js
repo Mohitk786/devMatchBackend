@@ -4,10 +4,10 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const http = require("http");
-
 require("dotenv").config();
-
 require("./utils/cronjob");
+
+
 
 app.use(
   cors({
@@ -15,6 +15,7 @@ app.use(
     credentials: true,
   })
 );
+
 app.use(express.json());
 app.use(cookieParser());
 
@@ -40,7 +41,7 @@ connectDB()
   .then(() => {
     console.log("Database connection established...");
     server.listen(process.env.PORT, () => {
-      console.log("Server is successfully listening on port 7777...");
+      console.log("Server is successfully listening on port 8000...");
     });
   })
   .catch((err) => {
